@@ -1,0 +1,9 @@
+<% @album = Album.find_by(id: params[:id]) %>
+<h4>Album name: <%= @album.name %></h4>
+<br>
+<% @album.tracks.each do |track| %>
+  <%= track.title %>
+  <br>
+<% end %>
+<br>
+<%= link_to "Up one level", band_url(@album.band) %>

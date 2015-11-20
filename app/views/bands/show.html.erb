@@ -1,0 +1,13 @@
+<% @band = Band.find_by(id: params[:id]) %>
+<h4>Band name: <%= @band.name %></h4>
+<%= link_to "Edit Band", edit_band_url(@band) %>
+<br><br><br>
+<%= link_to "Up one level", bands_url %>
+<br>
+<h5>Albums</h5>
+<% @band.albums.each do |album| %>
+  <%= link_to album.name, album_url(album) %>
+  <br>
+<% end %>
+<br><br>
+<%= link_to "Create a new album!", new_album_url %>
